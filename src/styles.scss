@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 html,
 body {
   display: flex;
@@ -9,6 +12,4 @@ body {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
