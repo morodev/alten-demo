@@ -4,11 +4,13 @@ import {RouterModule} from "@angular/router";
 import {PostListRoutes} from "./post-list.routing";
 import {CommonModule} from "@angular/common";
 import {PostComponent} from "./post/post.component";
+import {PostDetailDrawerComponent} from "./post-detail-drawer";
 
 @NgModule({
   declarations: [
     PostComponent,
-    PostListComponent
+    PostListComponent,
+    PostDetailDrawerComponent
   ],
   imports: [
     CommonModule,

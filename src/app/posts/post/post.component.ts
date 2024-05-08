@@ -1,4 +1,4 @@
-import {Component, Input, ViewEncapsulation} from "@angular/core";
+import {Component, EventEmitter, Input, Output, ViewEncapsulation} from "@angular/core";
 import {Post} from "../../../interfaces/post.interface";
 
 @Component({
@@ -8,4 +8,9 @@ import {Post} from "../../../interfaces/post.interface";
 })
 export class PostComponent {
   @Input() post!: Post;
+  @Output() openDetailDrawer: EventEmitter<Post> = new EventEmitter<Post>()
+
+  onOpenDrawerDetail() {
+    this.openDetailDrawer.emit(this.post);
+  }
 }
