@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from "@angular/core";
-import {Observable} from "rxjs";
+import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from "@angular/core";
+import {Observable, tap} from "rxjs";
 import {Post} from "../../interfaces/post.interface";
 import {PostListService} from "./post-list.service";
 import {PostDetailDrawerComponent} from "./post-detail-drawer";
@@ -10,16 +10,29 @@ import {PostDetailDrawerComponent} from "./post-detail-drawer";
   styleUrls: ['./post-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class PostListComponent implements OnInit {
-  posts$!: Observable<Post[]>;
+export class PostListComponent implements OnInit, AfterViewInit {
+  allData$!: Observable<Post[]>;
+  data: any;
   @ViewChild('detailDrawer') postDetailDrawer!: PostDetailDrawerComponent;
   constructor(private _postListService: PostListService) {
   }
   ngOnInit() {
-    this.posts$ = this._postListService.posts$;
+    this.allData$ = this._postListService.allData$;
   }
 
-  onOpenDrawerDetail($event: Post) {
+  ngAfterViewInit() {
+    this.postDetailDrawer.openedChanged.pipe(
+      tap(opened => {
+        if (!opened) {
+          this.data = null;
+        }
+      })
+    ).subscribe()
+  }
+
+  onOpenDrawerDetail($event: any, data: any) {
+    this._postListService.user = data.user;
+    this.data = data;
     this.postDetailDrawer.open();
   }
 }

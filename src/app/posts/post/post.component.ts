@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from "@angular/core";
-import {Post} from "../../../interfaces/post.interface";
 
 @Component({
   selector: "alten-demo-post",
@@ -7,10 +6,10 @@ import {Post} from "../../../interfaces/post.interface";
   encapsulation: ViewEncapsulation.None
 })
 export class PostComponent {
-  @Input() post!: Post;
-  @Output() openDetailDrawer: EventEmitter<Post> = new EventEmitter<Post>()
+  @Input() data!: any;
+  @Output() openDetailDrawer: EventEmitter<any> = new EventEmitter<any>()
 
   onOpenDrawerDetail() {
-    this.openDetailDrawer.emit(this.post);
+    this.openDetailDrawer.emit(this.data);
   }
 }

@@ -7,6 +7,7 @@ import {WelcomeComponent} from "./welcome/welcome.component";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {PostListModule} from "./posts/post-list.module";
 
 @NgModule({
   declarations: [
@@ -14,12 +15,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     WelcomeComponent,
     UserProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        PostListModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -2,14 +2,18 @@
   class="flex flex-row flex-1 gap-4 justify-between items-center border-2 border-yellow-500 rounded-3xl p-3 cursor-pointer hover:bg-yellow-100 min-h-40"
   (click)="onOpenDrawerDetail()">
   <div class="flex-none rounded-3xl w-16 h-16 bg-yellow-300 font-bold flex items-center justify-center">
-    <h1>AA</h1>
+    <h1>{{ data.user.name | userInitial }}</h1>
   </div>
   <div class="flex flex-col">
       <span class="font-bold">
-        {{ post.title }}
+        {{ data.post.title }}
       </span>
-    <span class="font-light">
-        {{ post.body }}
+      <span class="font-light">
+        {{ data.post.body }}
       </span>
+    <div class="border-yellow-500 border-b-2 w-10 pt-2"></div>
+    <span class="font-light pt-2">
+      <a (click)="$event.stopPropagation(); $event.stopImmediatePropagation();" [routerLink]="['/user/' + data.user.id]">{{ data.user.username }}</a>
+    </span>
   </div>
 </div>

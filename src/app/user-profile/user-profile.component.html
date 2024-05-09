@@ -1,1 +1,27 @@
-<h1>User Detail</h1>
+<div class="relative flex flex-col">
+  <div class="flex flex-col justify-center items-center gap-4 pt-4">
+    <div
+      class="flex flex-row flex-1 gap-4 justify-between items-center border-2 border-yellow-500 rounded-3xl p-3 cursor-pointer hover:bg-yellow-100 min-h-40">
+      <ng-container *ngIf="user$ | async as user">
+        <div class="flex-none rounded-3xl w-16 h-16 bg-yellow-300 font-bold flex items-center justify-center">
+          <h1>{{user.name | userInitial}}</h1>
+        </div>
+        <div class="flex flex-col">
+        <span class="font-bold">
+        {{ user.name }}
+      </span>
+          <span class="font-light">
+        {{ user.username }}
+      </span>
+          <span class="font-light">
+        {{ user.email }}
+      </span>
+          <span class="font-light">
+        {{ user.phone }}
+      </span>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</div>

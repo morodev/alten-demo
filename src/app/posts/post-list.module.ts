@@ -5,12 +5,17 @@ import {PostListRoutes} from "./post-list.routing";
 import {CommonModule} from "@angular/common";
 import {PostComponent} from "./post/post.component";
 import {PostDetailDrawerComponent} from "./post-detail-drawer";
+import {UserInitialPipe} from "./pipes/user-initial.pipe";
 
 @NgModule({
   declarations: [
     PostComponent,
     PostListComponent,
-    PostDetailDrawerComponent
+    PostDetailDrawerComponent,
+    UserInitialPipe
+  ],
+  exports: [
+    UserInitialPipe
   ],
   imports: [
     CommonModule,
