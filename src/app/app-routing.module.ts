@@ -19,6 +19,7 @@ const routes: Routes = [
       user: UserResolvers
     }
   },
+  {path: '**', redirectTo: '/'}
 ];
 
 @NgModule({
